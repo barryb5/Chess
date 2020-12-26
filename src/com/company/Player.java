@@ -4,8 +4,12 @@ import java.util.Scanner;
 public class Player {
 
     private final PlayerType playerType;
-    final Scanner scanner = new Scanner(System.in);
 
+    public Player(PlayerType pt) {
+        this.playerType = pt;
+    }
+
+    final Scanner scanner = new Scanner(System.in);
     int[] readInts() {
         System.out.print("Put in your input as curRow, curCol, newRow, newCol. ");
         System.out.println("Eg. is you want to move your piece from 5, 0 to 4, 1 then you would put in (5, 0, 4, 1)");
@@ -32,11 +36,7 @@ public class Player {
         return playerType;
     }
 
-    public Player(PlayerType pt) {
-        this.playerType = pt;
-    }
-
-    public void move(Board board, Player player) {
+    public void move(ChessBoard chessBoard, Player player) {
 
         // take the array of ints and put them into the coordinates
         int[] array = readInts();
@@ -44,9 +44,9 @@ public class Player {
         Coordinates c2 = new Coordinates(array[2], array[3]);
 
         // check if the moving of the piece works if not try again
-        if (!board.move(c1, c2, player)) {
+        if (!chessBoard.move(c1, c2, player)) {
             System.out.println("that doesn't work try again");
-            move(board, player);
+            move(chessBoard, player);
         }
     }
 }

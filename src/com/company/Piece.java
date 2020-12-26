@@ -1,13 +1,21 @@
 package com.company;
 
-public class Piece {
+abstract public class Piece {
     ChessBoard board;
     Player.PlayerType type;
 
-    public Token(ChessBoard board, Player.PlayerType type)
+    public Piece(ChessBoard board, Player.PlayerType type)
     {
         this.board = board;
         this.type = type;
+    }
+
+    public String player()
+    {
+        if (this.type == Player.PlayerType.Black)
+            return "black";
+        else
+            return "white";
     }
 
     public abstract boolean move(Coordinates beg, Coordinates end);
