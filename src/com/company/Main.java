@@ -8,18 +8,13 @@ public class Main {
         Player pb = new Player(Player.PlayerType.Black);
         Player pw = new Player(Player.PlayerType.White);
 
-        Piece[] grid = new Piece[8];
+        cb.resetBoard();
 
-        grid[0] = new Pawn(cb, pb.getPlayerType());
-        grid[1] = new Pawn(cb, pw.getPlayerType());
-        grid[2] = new King(cb, pb.getPlayerType());
-        grid[3] = new King(cb, pw.getPlayerType());
+        Piece[][] grid = new Piece[8][8];
 
+        grid[0][0] = new Pawn(cb, Player.PlayerType.Black);
 
-        System.out.println(grid[0].getPlayerType() + " " + grid[0].print());
-        System.out.println(grid[1].getPlayerType() + " " + grid[1].print());
-        System.out.println(grid[2].getPlayerType() + " " + grid[2].print());
-        System.out.println(grid[3].getPlayerType() + " " + grid[3].print());
+        cb.printBoard();
 
 
     }

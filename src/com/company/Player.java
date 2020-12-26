@@ -1,15 +1,16 @@
 package com.company;
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
 
 public class Player {
 
     private final PlayerType playerType;
+    final Scanner scanner = new Scanner(System.in);
 
     public Player(PlayerType pt) {
         this.playerType = pt;
     }
 
-    final Scanner scanner = new Scanner(System.in);
     int[] readInts() {
         System.out.print("Put in your input as curRow, curCol, newRow, newCol. ");
         System.out.println("Eg. is you want to move your piece from 5, 0 to 4, 1 then you would put in (5, 0, 4, 1)");

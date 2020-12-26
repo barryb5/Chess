@@ -1,7 +1,7 @@
 package com.company;
 
-public class Pawn extends Piece {
-    Pawn(ChessBoard board, Player.PlayerType type)
+public class Rook extends Piece {
+    Rook(ChessBoard board, Player.PlayerType type)
     {
         super(board, type);
     }
@@ -9,6 +9,8 @@ public class Pawn extends Piece {
     @Override
     public boolean move(Coordinates beg, Coordinates end)
     {
+        int mult = Player.PlayerType.White == type ? 1 : -1;
+        boolean isKilling = false;
         return true;
     }
 
@@ -16,8 +18,8 @@ public class Pawn extends Piece {
     public String print()
     {
         if (this.type == Player.PlayerType.White)
-            return "WP";
+            return "WR";
         else
-            return "BP";
+            return "BR";
     }
 }

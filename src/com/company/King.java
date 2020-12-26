@@ -14,8 +14,8 @@ public class King extends Piece {
     public String print()
     {
         if (this.type == Player.PlayerType.White)
-            return "wK";
+            return "WK";
         else
-            return "bK";
+            return "BK";
     }
 }
