@@ -11,7 +11,7 @@ public class ChessBoard {
 
     // prints the board
     public void printBoard() {
-        System.out.print("  ");
+        System.out.print(" j");
         for (int i = 0; i < size; ++i)
             System.out.print("   " + i + " ");
         System.out.println();
@@ -42,8 +42,9 @@ public class ChessBoard {
                 else
                     System.out.print("+");
             }
-            System.out.println();
+            System.out.println("");
         }
+        System.out.println("i");
     }
 
     // resets the board
@@ -59,8 +60,6 @@ public class ChessBoard {
                 } else if (j == 7 && i == 0 || j == 7 && i == 7) {
                     grid[i][j] = new Rook(this, Player.PlayerType.White);
                 }
-
-                grid[i][j] = null;
             }
         }
     }
@@ -81,7 +80,7 @@ public class ChessBoard {
                 (end.c > size - 1) ||
                 (grid[beg.r][beg.c] == null) ||
                 (grid[beg.r][beg.c].type != player.getPlayerType()) ||
-                (grid[end.r][end.c] != null))
+                (grid[end.r][end.c].type == player.getPlayerType()))
             return false;
 
         grid[beg.r][beg.c].move(beg, end);

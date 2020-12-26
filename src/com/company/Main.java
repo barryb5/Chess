@@ -9,11 +9,6 @@ public class Main {
         Player pw = new Player(Player.PlayerType.White);
 
         cb.resetBoard();
-
-        Piece[][] grid = new Piece[8][8];
-
-        grid[0][0] = new Pawn(cb, Player.PlayerType.Black);
-
         cb.printBoard();
 
 
