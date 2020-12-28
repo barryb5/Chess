@@ -33,30 +33,41 @@ public class Pawn extends Piece {
                     System.out.println("Enemy is correct distance away");
                 }
                 // Checks if enemy is ahead of pawn
-
+                if (end.c <= beg.c) {
+                    System.out.println("Enemy is not ahead of pawn");
+                    return false;
+                } else {
+                    System.out.println("Enemy is ahead of pawn");
+                }
 
                 board.grid[end.r][end.c] = null;
                 board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
                 System.out.println("Murder Successful");
             } else {
+                // Pawn is black
+                // Checks if enemy is diagonal to pawn
+                if (Math.abs(end.r - beg.r) != 1 || Math.abs(end.c - beg.c) != 1) {
+                    System.out.println("Enemy is not in killing sight");
+                    return false;
+                } else {
+                    System.out.println("Enemy is correct distance away");
+                }
+                // Checks if enemy is ahead of pawn
+                if (end.c >= beg.c) {
+                    System.out.println("Enemy is not ahead of pawn");
+                    return false;
+                } else {
+                    System.out.println("Enemy is ahead of pawn");
+                }
 
+                board.grid[end.r][end.c] = null;
+                board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
                 System.out.println("Murder Successful");
+                return true;
             }
-
-
         } else {
-            // Pawn is black
-            // Checks if enemy is diagonal to pawn
-            if (Math.abs(end.r - beg.r) != 1 || Math.abs(end.c - beg.c) != 1) {
-                System.out.println("Enemy is not in killing sight");
-                return false;
-            } else {
-                System.out.println("Enemy is correct distance away");
-            }
-            // Checks if enemy is ahead of pawn
-
-            board.grid[end.r][end.c] = null;
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
+            board.grid[beg.r][beg.c] = null;
             return true;
         }
 

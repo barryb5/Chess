@@ -59,6 +59,10 @@ public class ChessBoard {
                     grid[i][j] = new Rook(this, Player.PlayerType.Black);
                 } else if (j == 7 && i == 0 || j == 7 && i == 7) {
                     grid[i][j] = new Rook(this, Player.PlayerType.White);
+                } else if ((j == 0 && i == 1) || (j == 0 && i == 6)) {
+                    grid[i][j] = new Knight(this, Player.PlayerType.Black);
+                } else if ((j == 7 && i == 1) || (j == 7 && i == 6)) {
+                    grid[i][j] = new Knight(this, Player.PlayerType.White);
                 }
             }
         }

@@ -37,17 +37,17 @@ public class Player {
         return playerType;
     }
 
-    public void move(ChessBoard chessBoard, Player player) {
-
-        // take the array of ints and put them into the coordinates
-        int[] array = readInts();
-        Coordinates c1 = new Coordinates(array[0], array[1]);
-        Coordinates c2 = new Coordinates(array[2], array[3]);
-
-        // check if the moving of the piece works if not try again
-        if (!chessBoard.move(c1, c2, player)) {
-            System.out.println("that doesn't work try again");
-            move(chessBoard, player);
-        }
-    }
+//    public void move(ChessBoard chessBoard, Player player) {
+//
+//        // take the array of ints and put them into the coordinates
+//        int[] array = readInts();
+//        Coordinates c1 = new Coordinates(array[0], array[1]);
+//        Coordinates c2 = new Coordinates(array[2], array[3]);
+//
+//        // check if the moving of the piece works if not try again
+//        if (!chessBoard.move(c1, c2, player)) {
+//            System.out.println("that doesn't work try again");
+//            move(chessBoard, player);
+//        }
+//    }
 }

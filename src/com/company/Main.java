@@ -10,7 +10,7 @@ public class Main {
 
         cb.resetBoard();
         cb.printBoard();
-
-
+        cb.move(new Coordinates(0, 1), new Coordinates(0, 2), pb);
+        cb.printBoard();
     }
 }

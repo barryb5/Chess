@@ -1,30 +1,32 @@
 package com.company;
 
-public class King extends Piece {
-    King(ChessBoard board, Player.PlayerType type) {
+public class Knight extends Piece{
+    Knight(ChessBoard board, Player.PlayerType type)
+    {
         super(board, type);
     }
 
     @Override
-    public boolean move(Coordinates beg, Coordinates end) {
+    public boolean move(Coordinates beg, Coordinates end)
+    {
         /**
          * mult will tell me if the player is white or black
          * isKilling tells me if the player is taking an enemy piece
          */
-        int mult = Player.PlayerType.White == this.type ? 1 : -1;
+        int mult = Player.PlayerType.White == type ? 1 : -1;
         boolean isKilling = false;
 
-        if (board.grid[end.r][end.c] != null) {
+        // If end coordinates have an enemy in sight, set isKilling to true
+        if (board.grid[end.r][end.c] != null)
             isKilling = true;
-        }
-        // Check that king is moving correct amount
-        if((Math.abs(end.c - beg.c) == 1 && Math.abs(end.r - beg.r) == 1)
-                || (Math.abs(end.r - beg.r) == 1 && Math.abs(end.c - beg.c) == 0)
-                || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) == 1)
-                || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) == 0)) {
-            System.out.println("Moving correct amount");
+
+        // Checks if movement makes the "L" shape
+        if (Math.abs(end.c - beg.c) == 1 && Math.abs(end.r - beg.r) == 2
+            || Math.abs(end.c - beg.c) == 2 && Math.abs(end.r - beg.r) == 1) {
+            System.out.println("Movement amount is correct");
         } else {
-            System.out.println("Not moving correct amount");
+            System.out.println("Movement amount is incorrect");
+            return false;
         }
         // If killing
         if (isKilling == true) {
@@ -37,6 +39,7 @@ public class King extends Piece {
             // If not killing
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
+            System.out.println("Movement successful");
             return true;
         }
 
@@ -47,8 +50,8 @@ public class King extends Piece {
     public String print()
     {
         if (this.type == Player.PlayerType.White)
-            return "WK";
+            return "Wk";
         else
-            return "BK";
+            return "Bk";
     }
 }
