@@ -20,17 +20,17 @@ public class Pawn extends Piece {
             isKilling = true;
         }
 
-        if (isKilling = true) {
-            System.out.println("Murder is possible");
+        if (true == isKilling) {
+            System.out.println("Murder is possible for pawn");
             // Checks color and adjusts for it
             if (mult == 1) {
                 // Pawn is white
                 // Checks if enemy is diagonal to pawn
                 if (Math.abs(end.r - beg.r) != 1 || Math.abs(end.c - beg.c) != 1) {
-                    System.out.println("Enemy is not in killing sight");
+                    System.out.println("Enemy is not in pawn killing sight");
                     return false;
                 } else {
-                    System.out.println("Enemy is correct distance away");
+                    System.out.println("Enemy is correct distance away from pawn");
                 }
                 // Checks if enemy is ahead of pawn
                 if (end.c <= beg.c) {
@@ -42,12 +42,12 @@ public class Pawn extends Piece {
 
                 board.grid[end.r][end.c] = null;
                 board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
-                System.out.println("Murder Successful");
+                System.out.println("Murder by pawn is successful");
             } else {
                 // Pawn is black
                 // Checks if enemy is diagonal to pawn
                 if (Math.abs(end.r - beg.r) != 1 || Math.abs(end.c - beg.c) != 1) {
-                    System.out.println("Enemy is not in killing sight");
+                    System.out.println("Enemy is not in killing sight of pawn");
                     return false;
                 } else {
                     System.out.println("Enemy is correct distance away");
@@ -62,12 +62,13 @@ public class Pawn extends Piece {
 
                 board.grid[end.r][end.c] = null;
                 board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
-                System.out.println("Murder Successful");
+                System.out.println("Murder by pawn is successful");
                 return true;
             }
         } else {
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
+            System.out.println("Pawn movement successful");
             return true;
         }
 

@@ -21,18 +21,19 @@ public class Bishop extends Piece{
 
         if ((Math.abs(end.r - beg.r) == Math.abs(end.c - beg.c))
                 || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) != 0)) {
-            System.out.println("Moving direction is correct");
+            System.out.println("Moving direction is correct for Bishop");
         } else {
             System.out.println("Rook cannot move diagonally");
             return false;
         }
 
+        // Checks that the spaces in between the start and end is empty
         if (beg.c > end.c) {
             if (beg.r > end.r) {
                 for (int i = end.c; i < beg.c; i++) {
                     for (int j = end.r; j < beg.r; j++) {
                         if (board.grid[i][j] != null) {
-                            System.out.println("Something is in the way");
+                            System.out.println("Something is in the way of the Bishop movement");
                             return false;
                         }
                     }
@@ -41,7 +42,7 @@ public class Bishop extends Piece{
                 for (int i = beg.c; i > end.c; i--) {
                     for (int j = beg.r; j > end.r; j--) {
                         if (board.grid[i][j] != null) {
-                            System.out.println("Something is in the way");
+                            System.out.println("Something is in the way of the Bishop movement");
                             return false;
                         }
                     }
@@ -52,7 +53,7 @@ public class Bishop extends Piece{
                 for (int i = beg.c; i < end.c; i++) {
                     for (int j = end.r; j > beg.r; j--) {
                         if (board.grid[i][j] != null) {
-                            System.out.println("Something is in the way");
+                            System.out.println("Something is in the way of the Bishop movement");
                             return false;
                         }
                     }
@@ -61,7 +62,7 @@ public class Bishop extends Piece{
                 for (int i = beg.c; i < end.c; i++) {
                     for (int j = beg.r; j < beg.r; j++) {
                         if (board.grid[i][j] != null) {
-                            System.out.println("Something is in the way");
+                            System.out.println("Something is in the way of the Bishop movement");
                             return false;
                         }
                     }
@@ -70,16 +71,17 @@ public class Bishop extends Piece{
         }
 
         // If killing
-        if (isKilling == true) {
-            System.out.println("Murder is possible");
+        if (true == isKilling) {
+            System.out.println("Murder is possible for bishop");
             board.grid[end.r][end.c] = null;
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
-            System.out.println("Murder Successful");
+            System.out.println("Murder by bishop is successful");
         } else {
             // If not killing
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
+            System.out.println("Bishop movement successful");
             return true;
         }
 

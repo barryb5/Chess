@@ -23,23 +23,23 @@ public class Knight extends Piece{
         // Checks if movement makes the "L" shape
         if (Math.abs(end.c - beg.c) == 1 && Math.abs(end.r - beg.r) == 2
             || Math.abs(end.c - beg.c) == 2 && Math.abs(end.r - beg.r) == 1) {
-            System.out.println("Movement amount is correct");
+            System.out.println("Movement shape is correct for knight");
         } else {
-            System.out.println("Movement amount is incorrect");
+            System.out.println("Movement shape is incorrect for knight");
             return false;
         }
         // If killing
         if (isKilling == true) {
-            System.out.println("Murder is possible");
+            System.out.println("Murder is possible for knight");
             board.grid[end.r][end.c] = null;
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
-            System.out.println("Murder Successful");
+            System.out.println("Murder by knight is successful");
         } else {
             // If not killing
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
-            System.out.println("Movement successful");
+            System.out.println("Knight movement successful");
             return true;
         }
 

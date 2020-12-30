@@ -22,21 +22,22 @@ public class King extends Piece {
                 || (Math.abs(end.r - beg.r) == 1 && Math.abs(end.c - beg.c) == 0)
                 || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) == 1)
                 || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) == 0)) {
-            System.out.println("Moving correct amount");
+            System.out.println("King is moving correct amount");
         } else {
-            System.out.println("Not moving correct amount");
+            System.out.println("King isn't moving the correct amount");
         }
         // If killing
-        if (isKilling == true) {
-            System.out.println("Murder is possible");
+        if (true == isKilling) {
+            System.out.println("Murder by king is possible");
             board.grid[end.r][end.c] = null;
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
-            System.out.println("Murder Successful");
+            System.out.println("Murder by king is successful");
         } else {
             // If not killing
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
+            System.out.println("King movement successful");
             return true;
         }
 

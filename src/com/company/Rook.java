@@ -22,7 +22,7 @@ public class Rook extends Piece {
 
         if ((Math.abs(end.r - beg.r) != 0 && Math.abs(end.c - beg.c) == 0)
             || (Math.abs(end.r - beg.r) == 0 && Math.abs(end.c - beg.c) != 0)) {
-            System.out.println("Moving direction is correct");
+            System.out.println("Moving direction for rook is correct");
         } else {
             System.out.println("Rook cannot move diagonally");
             return false;
@@ -34,14 +34,14 @@ public class Rook extends Piece {
             if (beg.r < end.r) {
                 for (int i = beg.r + 1; i < end.r; i++) {
                     if (board.grid[i][end.c] != null) {
-                        System.out.println("There is an object in the way");
+                        System.out.println("There is an object in the way of the rook");
                         return false;
                     }
                 }
             } else {
                 for (int i = end.r + 1; i < beg.r; i++) {
                     if (board.grid[i][beg.c] != null) {
-                        System.out.println("There is an object in the way");
+                        System.out.println("There is an object in the way of the rook");
                         return false;
                     }
                 }
@@ -52,35 +52,36 @@ public class Rook extends Piece {
             if (beg.c < end.c) {
                 for (int i = beg.c + 1; i < end.c; i++) {
                     if (board.grid[end.r][i] != null) {
-                        System.out.println("There is an object in the way");
+                        System.out.println("There is an object in the way of the rook");
                         return false;
                     }
                 }
             } else {
                 for (int i = beg.c + 1; i < end.c; i++) {
                     if (board.grid[end.r][i] != null) {
-                        System.out.println("There is an object in the way");
+                        System.out.println("There is an object in the way of the rook");
                         return false;
                     }
                 }
             }
 
         } else {
-            System.out.println("There is an object in the way");
+            System.out.println("There is an object in the way of the rook");
             return false;
         }
 
         // If killing
-        if (isKilling == true) {
-            System.out.println("Murder is possible");
+        if (true == isKilling) {
+            System.out.println("Murder is possible for rook");
             board.grid[end.r][end.c] = null;
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
-            System.out.println("Murder Successful");
+            System.out.println("Murder by rook is successful");
         } else {
             // If not killing
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
+            System.out.println("Rook movement successful");
             return true;
         }
         return true;
