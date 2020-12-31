@@ -66,6 +66,10 @@ public class ChessBoard {
                     grid[i][j] = new Bishop(this, Player.PlayerType.Black);
                 } else if ((j == 7 && i == 2) || (j == 7 && i == 5)) {
                     grid[i][j] = new Bishop(this, Player.PlayerType.White);
+                } else if (j == 0 && i == 3) {
+                    grid[i][j] = new King(this, Player.PlayerType.Black);
+                } else if (j == 7 && i == 4) {
+                    grid[i][j] = new King(this, Player.PlayerType.White);
                 }
             }
         }
@@ -86,18 +90,16 @@ public class ChessBoard {
                 (end.r > size - 1) ||
                 (end.c > size - 1) ||
                 (grid[beg.r][beg.c] == null) ||
-                (grid[beg.r][beg.c].type != player.getPlayerType()) ||
-                (grid[end.r][end.c].type == player.getPlayerType()))
+                ((grid[beg.r][beg.c] != null) && (grid[beg.r][beg.c].type != player.getPlayerType())) ||
+                ((grid[end.r][end.c] != null) && (grid[end.r][end.c].type == player.getPlayerType()))
+            )
             return false;
 
         boolean success = grid[beg.r][beg.c].move(beg, end);
 
         if (!success) {
             System.out.format("Movement not possible for %s", grid[beg.r][beg.c].print());
-        } else {
-            grid[beg.r][beg.c].move(beg, end);
         }
-
         return true;
     }
 }

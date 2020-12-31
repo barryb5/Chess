@@ -13,5 +13,21 @@ public class Main {
         
         cb.move(new Coordinates(0, 1), new Coordinates(0, 2), pb);
         cb.printBoard();
+        cb.move(new Coordinates(0, 2), new Coordinates(0, 3), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(0, 3), new Coordinates(0, 4), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(0, 4), new Coordinates(0, 5), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(0, 0), new Coordinates(0, 4), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(1, 0), new Coordinates(0, 2), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(0, 2), new Coordinates(2, 3), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(1, 1), new Coordinates(1, 2), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(2, 0), new Coordinates(0, 2), pb);
+        cb.printBoard();
     }
 }
