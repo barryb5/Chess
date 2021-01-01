@@ -19,6 +19,10 @@ public class Main {
         cb.printBoard();
         cb.move(new Coordinates(0, 4), new Coordinates(0, 5), pb);
         cb.printBoard();
+        cb.move(new Coordinates(0, 5), new Coordinates(1, 6), pb);
+        cb.printBoard();
+        cb.move(new Coordinates(1, 6), new Coordinates(0, 7), pb);
+        cb.printBoard();
         cb.move(new Coordinates(0, 0), new Coordinates(0, 4), pb);
         cb.printBoard();
         cb.move(new Coordinates(1, 0), new Coordinates(0, 2), pb);

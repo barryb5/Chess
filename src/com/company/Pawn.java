@@ -33,7 +33,7 @@ public class Pawn extends Piece {
                     System.out.println("Enemy is correct distance away from pawn");
                 }
                 // Checks if enemy is ahead of pawn
-                if (end.c <= beg.c) {
+                if (end.c >= beg.c) {
                     System.out.println("Enemy is not ahead of pawn");
                     return false;
                 } else {
@@ -53,7 +53,7 @@ public class Pawn extends Piece {
                     System.out.println("Enemy is correct distance away");
                 }
                 // Checks if enemy is ahead of pawn
-                if (end.c >= beg.c) {
+                if (end.c <= beg.c) {
                     System.out.println("Enemy is not ahead of pawn");
                     return false;
                 } else {
@@ -62,10 +62,14 @@ public class Pawn extends Piece {
 
                 board.grid[end.r][end.c] = null;
                 board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
+                board.grid[beg.r][beg.c] = null;
                 System.out.println("Murder by pawn is successful");
                 return true;
             }
         } else {
+            if (end.c == 0 || end.c == 7) {
+                // If the pawn reaches the end of the board, it becomes a queenxx
+            }
             board.grid[end.r][end.c] = board.grid[beg.r][beg.c];
             board.grid[beg.r][beg.c] = null;
             System.out.println("Pawn movement successful");
